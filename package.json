@@ -1,0 +1,26 @@
+{
+  "name": "gof-cdk",
+  "version": "1.0.0",
+  "description": "无尽冬日礼包码批量处理工具",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node ./src/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^22.13.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
