@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import { z } from 'zod';
 import { watch } from 'node:fs/promises';
-import { useLogger, Logger } from './logger';
+import { useLogger } from './logger';
 
 // 初始化时不使用logger，避免循环依赖
 let loggerInitialized = false;
@@ -55,9 +55,6 @@ class ConfigManager {
     // 立即加载一次配置
     this.loadConfigInternal().then(config => {
       this.cachedConfig = config;
-      
-      // 设置Logger的开发模式
-      Logger.setDevelopmentMode(config.developmentMode);
       
       // 初始化logger
       if (!loggerInitialized) {
@@ -192,9 +189,6 @@ class ConfigManager {
             // 重新加载配置
             const newConfig = await this.loadConfigInternal();
             this.cachedConfig = newConfig;
-            
-            // 更新Logger开发模式
-            Logger.setDevelopmentMode(newConfig.developmentMode);
             
             // 通知所有监听器
             for (const listener of this.configChangeListeners) {

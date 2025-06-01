@@ -33,6 +33,14 @@ export interface PlayerInfo {
 }
 
 /**
+ * 验证码接口
+ * @interface
+ */
+export interface Captcha {
+  img: string;
+}
+
+/**
  * 礼包码处理结果接口
  * @interface
  */
@@ -65,8 +73,8 @@ export class ApiError extends Error {
    * @param message 错误消息
    */
   constructor(
-    public readonly code: number, 
-    public readonly errCode: number, 
+    public readonly code: number,
+    public readonly errCode: number,
     message: string
   ) {
     super(message);

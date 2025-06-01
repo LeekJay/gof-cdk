@@ -1,4 +1,5 @@
 node_modules
+failed_tasks
 
 .cursor
 .env
