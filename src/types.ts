@@ -3,7 +3,21 @@
  * @interface
  */
 export interface InputObject {
-  [key: string]: string | number | object;
+	[key: string]: string | number | object;
+}
+
+/**
+ * 配置对象接口
+ * @interface
+ */
+export interface Config {
+	cdks: string[];
+	fids: string[];
+	maxRetries: number;
+	timeout: number;
+	developmentMode: boolean;
+	apiBaseUrl: string;
+	signSalt: string;
 }
 
 /**
@@ -12,10 +26,10 @@ export interface InputObject {
  * @template T 响应数据类型
  */
 export interface ApiResponse<T> {
-  code: number;
-  msg: string;
-  data: T | null;
-  err_code: number;
+	code: number;
+	msg: string;
+	data: T | null;
+	err_code: number;
 }
 
 /**
@@ -23,13 +37,13 @@ export interface ApiResponse<T> {
  * @interface
  */
 export interface PlayerInfo {
-  fid: number;
-  nickname: string;
-  kid: number;
-  stove_lv: number;
-  stove_lv_content: string;
-  avatar_image: string;
-  total_recharge_amount: number;
+	fid: number;
+	nickname: string;
+	kid: number;
+	stove_lv: number;
+	stove_lv_content: string;
+	avatar_image: string;
+	total_recharge_amount: number;
 }
 
 /**
@@ -37,7 +51,7 @@ export interface PlayerInfo {
  * @interface
  */
 export interface Captcha {
-  img: string;
+	img: string;
 }
 
 /**
@@ -45,10 +59,10 @@ export interface Captcha {
  * @interface
  */
 export interface GiftCodeResult {
-  success: boolean;
-  message: string;
-  cdk: string;
-  fid: string;
+	success: boolean;
+	message: string;
+	cdk: string;
+	fid: string;
 }
 
 /**
@@ -56,8 +70,8 @@ export interface GiftCodeResult {
  * @interface
  */
 export interface ProcessTask {
-  fid: string;
-  cdk: string;
+	fid: string;
+	cdk: string;
 }
 
 /**
@@ -66,19 +80,19 @@ export interface ProcessTask {
  * @extends {Error}
  */
 export class ApiError extends Error {
-  /**
-   * 构造函数
-   * @param code HTTP状态码
-   * @param errCode 业务错误码
-   * @param message 错误消息
-   */
-  constructor(
-    public readonly code: number,
-    public readonly errCode: number,
-    message: string
-  ) {
-    super(message);
-    this.name = 'ApiError';
-    Object.setPrototypeOf(this, ApiError.prototype);
-  }
-} 
+	/**
+	 * 构造函数
+	 * @param code HTTP状态码
+	 * @param errCode 业务错误码
+	 * @param message 错误消息
+	 */
+	constructor(
+		public readonly code: number,
+		public readonly errCode: number,
+		message: string,
+	) {
+		super(message);
+		this.name = "ApiError";
+		Object.setPrototypeOf(this, ApiError.prototype);
+	}
+}

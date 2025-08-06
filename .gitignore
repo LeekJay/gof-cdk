@@ -3,3 +3,5 @@ failed_tasks
 
 .cursor
 .env
+
+dist/

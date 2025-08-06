@@ -1,7 +1,7 @@
 {
   "name": "gof-cdk",
   "version": "1.0.0",
-  "description": "无尽冬日礼包码批量处理工具",
+  "description": "无尽冬日礼包码处理工具",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
