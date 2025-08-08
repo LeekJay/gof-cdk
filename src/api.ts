@@ -568,8 +568,8 @@ export const processSingleCode = async (
  */
 async function saveFailedTask(task: ProcessTask): Promise<void> {
 	try {
-		const fs = require("node:fs").promises;
-		const path = require("node:path");
+		const { promises: fs } = await import("node:fs");
+		const path = await import("node:path");
 
 		// 确保目录存在
 		const dirPath = path.join(process.cwd(), "failed_tasks");
@@ -618,7 +618,7 @@ async function saveFailedTask(task: ProcessTask): Promise<void> {
  */
 async function removeSuccessfulTask(filePath: string, successfulTask: ProcessTask): Promise<void> {
 	try {
-		const fs = require("node:fs").promises;
+		const { promises: fs } = await import("node:fs");
 
 		// 读取现有文件内容
 		let existingTasks: ProcessTask[] = [];
