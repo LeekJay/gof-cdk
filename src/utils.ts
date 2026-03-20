@@ -31,7 +31,7 @@ export function generateSignedObject(
 					typeof inputObject[key] === "object"
 						? JSON.stringify(inputObject[key])
 						: inputObject[key];
-				return `${key}=${value}`;
+				return `${key}=${encodeURIComponent(String(value))}`;
 			})
 			.join("&");
 

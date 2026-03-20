@@ -353,7 +353,7 @@ class ApiService {
 			});
 
 			logger.debug(
-				`礼包码请求成功 ${cdk} 对玩家 ${fid}, 响应码: ${response.data.code}, 错误码: ${response.data.err_code}`,
+				`礼包码请求成功 ${cdk} 对玩家 ${fid}, 响应码: ${response.data.code}, 错误码: ${response.data.err_code}, 错误消息: "${response.data.msg}"`,
 			);
 
 			if (response.data.code === 0 || response.data.err_code === 40008) {
